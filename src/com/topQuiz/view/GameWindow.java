@@ -56,6 +56,8 @@ public class GameWindow extends JFrame implements ActionListener {
 //            repaint();
 //            getContentPane().add(new MyPanel());
 //            validate();
+
+            Main.main(null);
         }else if (event.getActionCommand().equals("click Home")){
             BorderLayout layout = (BorderLayout) getContentPane().getLayout();
             getContentPane().remove(layout.getLayoutComponent(BorderLayout.CENTER));
