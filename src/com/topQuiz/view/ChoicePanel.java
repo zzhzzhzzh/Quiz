@@ -126,6 +126,7 @@ public class ChoicePanel extends JPanel implements ActionListener {
                 jCheckBox.setEnabled(false);
             }
             JOptionPane.showMessageDialog(null, "You have answered all questions, please go back to home page");
+            nextBtn.setEnabled(false);
         }
     }
 

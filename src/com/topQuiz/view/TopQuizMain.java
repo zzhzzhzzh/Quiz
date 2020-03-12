@@ -54,6 +54,6 @@ public class TopQuizMain extends JFrame implements ActionListener {
     public static void main(String[] args) {
 
         TopQuizMain topQuizMain = new TopQuizMain();
-        topQuizMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        topQuizMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
