@@ -12,7 +12,7 @@ import java.sql.Connection;
 
 public class FillBlankQues extends JFrame{
     private JPanel panel1,panel2;
-    private JButton submitBtn;
+    private JButton submitBtn,backBtn;
     private JLabel quesLbl,ansLbl;
     private JTextArea quesTa, ansTa;
 
@@ -56,12 +56,20 @@ public class FillBlankQues extends JFrame{
         submitBtn = new JButton("Submit");
         submitBtn.setActionCommand("submit");
         submitBtn.setFont(new Font("Arial", Font.BOLD, 18));
+        
+        backBtn = new JButton("Back");
+        backBtn.setActionCommand("back");
+        backBtn.setFont(new Font("Arial", Font.BOLD, 18));
 
         // add the event handlers to the buttons
-        ButtonEventHandler handler = new ButtonEventHandler();
-        submitBtn.addActionListener(handler);
+        ButtonEventSubmitHandler submitHandler = new ButtonEventSubmitHandler();
+        submitBtn.addActionListener(submitHandler);
+
+        ButtonEventBackHandler backHandler = new ButtonEventBackHandler();
+        backBtn.addActionListener(backHandler);
 
         panel2.add(submitBtn);
+        panel2.add(backBtn);
         
         container.add(panel1,BorderLayout.CENTER);
         container.add(panel2,BorderLayout.SOUTH);
@@ -70,16 +78,26 @@ public class FillBlankQues extends JFrame{
         setVisible(true);
 
     }
-    class ButtonEventHandler implements ActionListener {
+    
+    class ButtonEventBackHandler implements ActionListener {
+        public void actionPerformed( ActionEvent event ) {
+            if (event.getActionCommand().equals("back")) {       
+            	dispose();
+            	new ChooseQuesType().setVisible(true);    
+            	return;
+            }        	
+        }
+    }
+    class ButtonEventSubmitHandler implements ActionListener {
         public void actionPerformed( ActionEvent event ) {
             if ((quesTa.getText().equals("")) || (ansTa.getText().equals(""))) {
                 JOptionPane.showMessageDialog(null, "Please enter both question and answer!");
                 return;
             } else {
                 if (event.getActionCommand().equals("submit")) {       
-                    blankQuesAddActionPerformed(event);
+                    blankQuesAddActionPerformed(event);                  
+                }
             }
-        }
         }
             private void blankQuesAddActionPerformed(ActionEvent evt) {
         		// TODO Auto-generated method stub

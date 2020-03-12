@@ -12,7 +12,7 @@ import java.sql.Connection;
 
 public class FillChoiceQues extends JFrame {
   private JPanel panel1,panel2;
-  private JButton submitBtn;
+  private JButton submitBtn,backBtn;
   private JLabel quesLbl,choiceLbl,ansLbl;
   private JTextArea quesTa, choice1Ta, choice2Ta, choice3Ta, choice4Ta, ansTa;
 
@@ -73,13 +73,20 @@ public class FillChoiceQues extends JFrame {
       submitBtn = new JButton("Submit");
       submitBtn.setActionCommand("submit");
       submitBtn.setFont(new Font("Arial", Font.BOLD, 16));
+      
+      backBtn = new JButton("Back");
+      backBtn.setActionCommand("back");
+      backBtn.setFont(new Font("Arial", Font.BOLD, 16));
 
       // add the event handlers to the buttons
-      FillChoiceQues.ButtonEventHandler handler = new FillChoiceQues.ButtonEventHandler();
-      submitBtn.addActionListener(handler);
+      FillChoiceQues.ButtonEventSubmitHandler submitHandler = new FillChoiceQues.ButtonEventSubmitHandler();
+      submitBtn.addActionListener(submitHandler);
 
+      FillChoiceQues.ButtonEventBackHandler backHandler = new FillChoiceQues.ButtonEventBackHandler();
+      backBtn.addActionListener(backHandler);
+      
       panel2.add(submitBtn);
-
+      panel2.add(backBtn);
 
       container.add(panel1,BorderLayout.CENTER);
       container.add(panel2,BorderLayout.SOUTH);
@@ -89,7 +96,17 @@ public class FillChoiceQues extends JFrame {
 
   }
 
-  class ButtonEventHandler implements ActionListener {
+  class ButtonEventBackHandler implements ActionListener {
+      public void actionPerformed( ActionEvent event ) {
+          if (event.getActionCommand().equals("back")) {       
+          	dispose();
+          	new ChooseQuesType().setVisible(true);    
+          	return;
+          }        	
+      }
+  }
+  
+  class ButtonEventSubmitHandler implements ActionListener {
       public void actionPerformed(ActionEvent event) {
 
           if (quesTa.getText().equals("")) {
