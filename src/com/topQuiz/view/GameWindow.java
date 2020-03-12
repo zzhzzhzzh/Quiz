@@ -92,6 +92,7 @@ public class GameWindow extends JFrame implements ActionListener {
                     e.printStackTrace();
                 }
             }
+            dispose();
         } else if (event.getActionCommand().equals("click history score")) {
             BorderLayout layout = (BorderLayout) getContentPane().getLayout();
             getContentPane().remove(layout.getLayoutComponent(BorderLayout.CENTER));
