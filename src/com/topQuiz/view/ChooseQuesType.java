@@ -39,22 +39,15 @@ public class ChooseQuesType extends JFrame {
 
         setLocationRelativeTo(null);
         // Use an anonymous class as an event handler
-        blankQuesBtn.addActionListener( new ActionListener(){
-            public void actionPerformed(ActionEvent event){
-				dispose();
-				new FillBlankQues().setVisible(true);
-            }
-
+        blankQuesBtn.addActionListener(event -> {
+            dispose();
+            new FillBlankQues().setVisible(true);
         });
 
-        choiceQuesBtn.addActionListener( new ActionListener(){
-            public void actionPerformed(ActionEvent event){
-                dispose();
-                new FillChoiceQues().setVisible(true);
-            }
-
+        choiceQuesBtn.addActionListener(event -> {
+            dispose();
+            new FillChoiceQues().setVisible(true);
         });
-
         pack();
         setLocationRelativeTo(null);
         setVisible( true );

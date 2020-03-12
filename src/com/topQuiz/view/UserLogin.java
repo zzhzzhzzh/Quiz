@@ -28,7 +28,7 @@ public class UserLogin extends JFrame implements ActionListener {
 
         unameLbl = new JLabel("User Name");
         unameLbl.setFont(new Font("ARIAL", Font.BOLD, 16));
-        unameLbl.setForeground(Color.GRAY);
+        unameLbl.setForeground(Color.DARK_GRAY);
         unameTf = new JTextField(15);
 
         panel1.add(unameLbl);

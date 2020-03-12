@@ -13,27 +13,25 @@ public class AdminLogin extends JFrame{
 
     public AdminLogin(){
         super( "Admin Login" );
-        this.setSize(250, 250);
+        this.setSize(550, 100);
         this.setResizable(false);
-        
+
         // get content pane
         Container container = getContentPane();
         panel1 = new JPanel();
         panel1.setLayout(new FlowLayout());
-
-        
         // create  labels
-        unameLbl = new JLabel("Username");
+        unameLbl = new JLabel("User Name");
         pswLbl = new JLabel("Password");
-        unameLbl.setFont(new Font("ARIAL", Font.PLAIN, 19));
-        unameLbl.setForeground(Color.BLUE);
-        pswLbl.setFont(new Font("ARIAL", Font.PLAIN, 19));
-        pswLbl.setForeground(Color.BLUE);
+        unameLbl.setFont(new Font("ARIAL", Font.BOLD, 16));
+        unameLbl.setForeground(Color.DARK_GRAY);
+        pswLbl.setFont(new Font("ARIAL", Font.BOLD, 16));
+        pswLbl.setForeground(Color.DARK_GRAY);
 
-        unametTf = new JTextField(10);
-        pswTf = new JTextField(10);
+        unametTf = new JTextField(12);
+        pswTf = new JTextField(12);
 
-        // Add the labels and textfields to panel1
+        // Add the labels and textfield to panel1
         panel1.add(unameLbl);
         panel1.add(unametTf);
         panel1.add(pswLbl);
@@ -52,37 +50,16 @@ public class AdminLogin extends JFrame{
 
         panel2.add(submitBtn);
 
-        container.add(panel1,BorderLayout.PAGE_START);
-        container.add(panel2,BorderLayout.CENTER);
+        container.add(panel1,BorderLayout.WEST);
+        container.add(panel2,BorderLayout.PAGE_END);
 
-        pack();
+        //pack();
         setLocationRelativeTo(null);
         setVisible(true);
 
     }
     class ButtonEventHandler implements ActionListener {
         public void actionPerformed( ActionEvent event ){
-
-//            if ( (unametTf.getText().equals("")) || (pswTf.getText().equals(""))){
-//                  JOptionPane.showMessageDialog(null, "Please enter full info!");
-//            }
-//
-//            else {
-//                if (event.getActionCommand().equals("submit")){
-//                    if ( (unametTf.getText().equals("admin")) && (pswTf.getText().equals("123456"))){
-//                        dispose();
-//        				new ChooseQuesType().setVisible(true);
-//                    }
-//                    else {
-//                        JOptionPane.showMessageDialog(null, "Wrong user info!");
-//                        unametTf.setText("");
-//                        pswTf.setText("");
-//                    }
-//                }
-//
-//
-//            }
-
             if ( (unametTf.getText().equals("admin")) && (pswTf.getText().equals("123456"))){
                 dispose();
                 new ChooseQuesType().setVisible(true);

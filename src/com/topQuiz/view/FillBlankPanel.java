@@ -130,12 +130,4 @@ public class FillBlankPanel extends JPanel implements ActionListener {
             return questionsList;
         }
     }
-
-    public static void main(String[] args) throws Exception {
-//        JFrame f = new JFrame();
-//        FillBlankPanel app = new FillBlankPanel();
-//        f.setVisible(true);
-//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        f.getContentPane().add(app);
-     }
 }
