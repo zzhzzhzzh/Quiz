@@ -27,7 +27,7 @@ public class GameWindow extends JFrame implements ActionListener {
         gameChoicePanel = new GameChoicePanel(this);
 
         container.add(navigationPanel, BorderLayout.PAGE_START);
-        container.add(gameChoicePanel, BorderLayout.PAGE_END);
+        container.add(gameChoicePanel, BorderLayout.CENTER);
         setVisible(true);
     }
 
@@ -92,6 +92,12 @@ public class GameWindow extends JFrame implements ActionListener {
                     e.printStackTrace();
                 }
             }
+        } else if (event.getActionCommand().equals("click history score")) {
+            BorderLayout layout = (BorderLayout) getContentPane().getLayout();
+            getContentPane().remove(layout.getLayoutComponent(BorderLayout.CENTER));
+            repaint();
+            getContentPane().add(new ScorePanel(user), BorderLayout.CENTER);
+            validate();
         }
     }
 

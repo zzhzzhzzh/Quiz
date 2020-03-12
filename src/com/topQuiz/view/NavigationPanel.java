@@ -35,6 +35,7 @@ public class NavigationPanel extends JPanel  {
         add(score);
         add(homeBtn);
         add(submitBtn);
+        add(lookUpHistoryScores);
 
         setVisible(true);
     }

@@ -105,7 +105,7 @@ public class ChoicePanel extends JPanel implements ActionListener {
             jCheckBox.setSelected(false);
         }
 
-        if (rightanswer &&rightanswer && event.getActionCommand().equals("next question") && choiceQuestionIterator.hasNext()) {
+        if (rightanswer && event.getActionCommand().equals("next question") && choiceQuestionIterator.hasNext()) {
             //update total score
             user.setCurScore(user.getCurScore() + 1);
             navigationPanel.updateScore(user.getCurScore());
@@ -117,9 +117,14 @@ public class ChoicePanel extends JPanel implements ActionListener {
             checkBoxList[1].setText(choiceQuestion.getChoice2());
             checkBoxList[2].setText(choiceQuestion.getChoice3());
             checkBoxList[3].setText(choiceQuestion.getChoice4());
-        } else if (!choiceQuestionIterator.hasNext()) {
+        } else if (rightanswer && event.getActionCommand().equals("next question") && !choiceQuestionIterator.hasNext()) {
             user.setCurScore(user.getCurScore() + 1);
             navigationPanel.updateScore(user.getCurScore());
+            user.setType1Score(user.getType1Score() + 1);
+
+            for (JCheckBox jCheckBox: checkBoxList) {
+                jCheckBox.setEnabled(false);
+            }
             JOptionPane.showMessageDialog(null, "You have answered all questions, please go back to home page");
         }
     }

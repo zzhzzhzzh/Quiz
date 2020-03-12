@@ -4,6 +4,7 @@ import com.topQuiz.model.Score;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class ScoreDao {
 
@@ -17,5 +18,12 @@ public class ScoreDao {
         pstmt.setInt(5, score.getType2Score());
         pstmt.setInt(6, score.getType3Score());
         return pstmt.executeUpdate();
+    }
+
+    public ResultSet search(Connection con, int userId) throws Exception {
+        String sql = "select * from t_Score where userId=?";
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setInt(1, userId);
+        return pstmt.executeQuery();
     }
 }
