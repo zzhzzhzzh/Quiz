@@ -99,6 +99,7 @@ public class Type2Question extends JPanel implements ActionListener, MouseListen
             user.setType2Score(user.getType2Score() + 5);
             navigationPanel.updateScore(user.getCurScore());
             JOptionPane.showMessageDialog(null, "You have answered all question, please go back to home page");
+            quesContentLbl.setText("You have answered all questions");
 
         } else {
             JOptionPane.showMessageDialog(null, "incorrect answer");

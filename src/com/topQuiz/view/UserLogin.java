@@ -71,10 +71,9 @@ public class UserLogin extends JFrame implements ActionListener {
             ResultSet res = userDao.search(con, username);
             if (res.next()) {
                 int userId = res.getInt("id");
-                int maxScore = res.getInt("maxscore");
 
 
-                User user = new User(userId, username, maxScore);
+                User user = new User(userId, username);
                 System.out.println(user.toString());
                 dispose();
                 new GameWindow(user).setVisible(true);
