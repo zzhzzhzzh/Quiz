@@ -5,21 +5,29 @@ import java.awt.*;
 
 public class JPanel2048 extends JPanel {
     Game2048 newGame2048;
+    private int currentScore;
+    private static final int WINSCORE = 10;
     public JPanel2048(Game2048 newGame2048) {
         this.newGame2048 = newGame2048;
         newGame2048.panel = this;
+        currentScore = this.newGame2048.user.getCurScore();
     }
     public void paint(Graphics g) {
         drawBoard(g);
         drawBlocks(g);
+        drawScore(g);
         if(newGame2048.winOrLose()) {
             gameOver(g);
         }
 
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 4; col++) {
-                if (newGame2048.gameBoard[row][col] != null && newGame2048.gameBoard[row][col].number == 2048)
+                if (newGame2048.gameBoard[row][col] != null && newGame2048.gameBoard[row][col].number == 64) {
+                    currentScore += WINSCORE;
+                    newGame2048.user.setCurScore(currentScore);
+                    newGame2048.user.setType3Score(WINSCORE);
                     win(g);
+                }
             }
         }
     }
@@ -43,7 +51,7 @@ public class JPanel2048 extends JPanel {
         g.setFont(new Font("Arial", Font.BOLD, 80));
         g.drawString("GAME OVER", 60, 300);
         g.setFont(new Font("Arial", Font.BOLD, 40));
-        //g.drawString("Final score: " + newGame2048.score, 150, 380);
+        g.drawString("Final score: " + currentScore, 150, 380);
     }
 
     public void win(Graphics g) {
@@ -53,7 +61,7 @@ public class JPanel2048 extends JPanel {
         g.setFont(new Font("Arial", Font.BOLD, 80));
         g.drawString("You Win", 130, 300);
         g.setFont(new Font("Arial", Font.BOLD, 40));
-        //g.drawString("Final score: " + newGame2048.score, 150, 380);
+        g.drawString("Final score: " + currentScore, 150, 380);
     }
 
     public void drawBlocks(Graphics g)
@@ -69,13 +77,13 @@ public class JPanel2048 extends JPanel {
         }
     }
 
-//    public void score(Graphics g){
-//        g.setColor(Color.BLACK);
-//        g.setFont(new Font("Arial", Font.BOLD, 20));
-//        //g.drawString("Score: " + newGame2048.score, 465, 620);
+    public void drawScore(Graphics g){
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Arial", Font.BOLD, 18));
+        g.drawString("Current Score: " + currentScore, 227, 615);
 //        g.setColor(new Color(233,86,86));
-//        //g.drawString("Highest Score: " + newGame2048.highestScore, 10, 620);
-//    }
+//        g.drawString("Highest Score: " + newGame2048.highestScore, 10, 620);
+    }
 
     public int sideValue() {
         return this.getWidth();

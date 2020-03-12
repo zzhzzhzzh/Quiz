@@ -101,7 +101,7 @@ public class Type2Question extends JPanel implements ActionListener, MouseListen
             JOptionPane.showMessageDialog(null, "You have answered all question, please go back to home page");
 
         } else {
-            JOptionPane.showMessageDialog(null, "incorrect anwer");
+            JOptionPane.showMessageDialog(null, "incorrect answer");
         }
     }
 

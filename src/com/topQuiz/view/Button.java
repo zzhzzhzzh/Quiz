@@ -13,7 +13,7 @@ public class Button extends JButton implements ActionListener {
         this.game = game;
         this.panel = panel;
         this.setFont(new Font("Arial",1,16));
-        this.setText("New Game");
+        this.setText("Back to Home");
         this.addActionListener(this);
         this.setFocusable(false);
     }

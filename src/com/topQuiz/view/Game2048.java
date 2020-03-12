@@ -1,17 +1,20 @@
 package com.topQuiz.view;
 
-public class Game2048 {
+import com.topQuiz.model.Score;
+import com.topQuiz.model.User;
 
+public class Game2048 {
     JPanel2048 panel;
     Block[][] gameBoard;
     boolean gameOver;
-    boolean canMove = true;
+    User user;
     private static final int LEFT = 37;
     private static final int UP = 38;
     private static final int RIGHT = 39;
     private static final int DOWN = 40;
 
-    public Game2048() {
+    public Game2048(User user) {
+        this.user = user;
         gameBoard = new Block[4][4];
         gameOver = false;
     }
@@ -23,7 +26,6 @@ public class Game2048 {
             }
         }
     }
-
 
     // random generate a block
     public void randomGenerator() {
@@ -44,7 +46,6 @@ public class Game2048 {
     public void gamePlay(int keyCode) {
         if(gameOver)
             return;
-        canMove = false;
         switch (keyCode) {
             //left arrow key, i-column, j-row;
             case LEFT:
@@ -81,7 +82,6 @@ public class Game2048 {
                     for (int j = 1; j < 4; j ++) {
                         if (j > 0 && gameBoard[i][j] != null) {
                             if (gameBoard[i][j - 1] == null) {
-                                canMove = true;
                                 while (j > 0 && gameBoard[i][j - 1] == null) {
                                     gameBoard[i][j - 1] = gameBoard[i][j];
                                     gameBoard[i][j] = null;
@@ -95,7 +95,6 @@ public class Game2048 {
                                     }
                                 }
                             } else if (blockValue(i,j - 1) == blockValue(i, j)) {
-                                canMove = true;
                                 gameBoard[i][j - 1].number += gameBoard[i][j].number;
                                 gameBoard[i][j] = null;
                                 j --;
@@ -111,7 +110,6 @@ public class Game2048 {
                     for(int j = 0; j < 4; j ++) {
                         if (i < 3 && gameBoard[i][j] != null) {
                             if (gameBoard[i + 1][j] == null) {
-                                canMove = true;
                                 while (i < 3 && gameBoard[i + 1][j] == null) {
                                     gameBoard[i + 1][j] = gameBoard[i][j];
                                     gameBoard[i][j] = null;
@@ -126,7 +124,6 @@ public class Game2048 {
                                     }
                                 }
                             } else if (blockValue(i + 1, j) == blockValue(i, j)) {
-                                canMove = true;
                                 gameBoard[i + 1][j].number += gameBoard[i][j].number;
                                 gameBoard[i][j] = null;
                                 i ++;
@@ -143,7 +140,6 @@ public class Game2048 {
                     for (int j = 3; j >= 0; j --) {
                         if (j < 3 && gameBoard[i][j] != null) {
                             if (gameBoard[i][j + 1] == null) {
-                                canMove = true;
                                 while (j < 3 && gameBoard[i][j + 1] == null) {
                                     gameBoard[i][j + 1] = gameBoard[i][j];
                                     gameBoard[i][j] = null;
@@ -157,7 +153,6 @@ public class Game2048 {
                                     }
                                 }
                             } else if (blockValue(i,j + 1) == blockValue(i, j)) {
-                                canMove = true;
                                 gameBoard[i][j + 1].number += gameBoard[i][j].number;
                                 gameBoard[i][j] = null;
                                 j ++;

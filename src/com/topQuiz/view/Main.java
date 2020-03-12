@@ -1,10 +1,12 @@
 package com.topQuiz.view;
 
+import com.topQuiz.model.User;
+
 import java.awt.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Game2048 game = new Game2048();
+    public static void main(User user) {
+        Game2048 game = new Game2048(user);
         JFrame2048 frame = new JFrame2048();
         JPanel2048 panel = new JPanel2048(game);
         KeyControl2048 key = new KeyControl2048(game);

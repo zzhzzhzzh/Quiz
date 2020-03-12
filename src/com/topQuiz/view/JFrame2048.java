@@ -6,9 +6,9 @@ import java.awt.*;
 public class JFrame2048 extends JFrame {
     public  JFrame2048(){
         this.setVisible(true);
-        this.setSize(new Dimension(600,660));
+        this.setSize(new Dimension(600,680));
         this.setResizable(false);
-        this.setTitle("2048");
+        this.setTitle("Adding Game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
