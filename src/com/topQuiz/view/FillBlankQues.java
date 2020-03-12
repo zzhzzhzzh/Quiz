@@ -99,39 +99,38 @@ public class FillBlankQues extends JFrame{
                 }
             }
         }
-            private void blankQuesAddActionPerformed(ActionEvent evt) {
-        		// TODO Auto-generated method stub
-        		String question = quesTa.getText();
-        		String answer = ansTa.getText();
- 
-        		BlankQuestion blankQuestion = new BlankQuestion(question, answer);
-        		
-        	    DbUtil dbUtil = new DbUtil();
-        	    BlankQuestionDao blankQuestionDao = new BlankQuestionDao();
-        		Connection con = null;
-        		
-        		try {
-        			con = dbUtil.getCon();
-        			int n = blankQuestionDao.add(con, blankQuestion);
-        			if (n == 1) {
-        				JOptionPane.showMessageDialog(null, "Successfully added!");
-        			} else {
-        				JOptionPane.showMessageDialog(null, "Cannot be added!");				
-        			}
-        		} catch (Exception e){
-        			e.printStackTrace();
-        			JOptionPane.showMessageDialog(null, "Cannot be added!"); 
-        		}finally {
-        			try {
-        				dbUtil.closeCon(con);
-        			} catch (Exception e) {
-        				// TODO Auto-generated catch block
-        				e.printStackTrace();
-        			}
-        		}
-    }
-    
 
+        private void blankQuesAddActionPerformed(ActionEvent evt) {
+            // TODO Auto-generated method stub
+            String question = quesTa.getText();
+            String answer = ansTa.getText();
+
+            BlankQuestion blankQuestion = new BlankQuestion(question, answer);
+
+            DbUtil dbUtil = new DbUtil();
+            BlankQuestionDao blankQuestionDao = new BlankQuestionDao();
+            Connection con = null;
+
+            try {
+                con = dbUtil.getCon();
+                int n = blankQuestionDao.add(con, blankQuestion);
+                if (n == 1) {
+                    JOptionPane.showMessageDialog(null, "Successfully added!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Cannot be added!");
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Cannot be added!");
+            }finally {
+                try {
+                    dbUtil.closeCon(con);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
 	}
 
     public static void createAndShowGUI(){
@@ -146,7 +145,6 @@ public class FillBlankQues extends JFrame{
                 createAndShowGUI();
             }
         });
-
     }
 
 }

@@ -91,13 +91,10 @@ public class UserLogin extends JFrame implements ActionListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void userLoginAction(ActionEvent event) {
         String username = unameTf.getText();
-
         DbUtil dbUtil = new DbUtil();
         UserDao userDao = new UserDao();
         Connection con = null;
@@ -107,8 +104,6 @@ public class UserLogin extends JFrame implements ActionListener {
             ResultSet res = userDao.search(con, username);
             if (res.next()) {
                 int userId = res.getInt("id");
-
-
                 User user = new User(userId, username);
                 System.out.println(user.toString());
                 dispose();

@@ -3,9 +3,9 @@ package com.topQuiz.view;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyControl2048 implements KeyListener {
-    Game2048 newGame;
-    public KeyControl2048(Game2048 newGame) {
+public class AddingGameKeyControl implements KeyListener {
+    AddingGameController newGame;
+    public AddingGameKeyControl(AddingGameController newGame) {
         this.newGame = newGame;
     }
 

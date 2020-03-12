@@ -2,12 +2,12 @@ package com.topQuiz.view;
 
 import java.awt.*;
 
-public class Block {
+public class AddingGameBlock {
     int number;
     int row;
     int column;
-    Game2048 game;
-    public Block(int number, int row, int column, Game2048 game) {
+    AddingGameController game;
+    public AddingGameBlock(int number, int row, int column, AddingGameController game) {
         this.number = number;
         this.row = row;
         this.column = column;
@@ -20,7 +20,7 @@ public class Block {
         g.setColor(changeColor());
         g.fillRoundRect(row * value / 4 + 10, column * value / 4 + 10,
                 value / 4 - 20, value / 4 - 20,30, 30);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.DARK_GRAY);
         g.setFont(new Font("Arial", Font.BOLD, 40));
         switch (letter.length()) {
             case 2:

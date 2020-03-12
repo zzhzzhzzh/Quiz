@@ -1,11 +1,10 @@
 package com.topQuiz.view;
 
-import com.topQuiz.model.Score;
 import com.topQuiz.model.User;
 
-public class Game2048 {
-    JPanel2048 panel;
-    Block[][] gameBoard;
+public class AddingGameController {
+    AddingGamePanel panel;
+    AddingGameBlock[][] gameBoard;
     boolean gameOver;
     User user;
     private static final int LEFT = 37;
@@ -13,9 +12,9 @@ public class Game2048 {
     private static final int RIGHT = 39;
     private static final int DOWN = 40;
 
-    public Game2048(User user) {
+    public AddingGameController(User user) {
         this.user = user;
-        gameBoard = new Block[4][4];
+        gameBoard = new AddingGameBlock[4][4];
         gameOver = false;
     }
 
@@ -36,9 +35,9 @@ public class Game2048 {
             col = (int) (Math.random() * 4);
         }
         if ((int) (Math.random() * 2) == 0) {
-            gameBoard[row][col] = new Block(2, row, col,this);
+            gameBoard[row][col] = new AddingGameBlock(2, row, col,this);
         } else
-            gameBoard[row][col] = new Block(4, row, col,this);
+            gameBoard[row][col] = new AddingGameBlock(4, row, col,this);
     }
 
 
@@ -118,7 +117,6 @@ public class Game2048 {
                                     while (i < 3 && gameBoard[i + 1][j] != null
                                             && blockValue(i + 1, j) == blockValue(i, j)) {
                                         gameBoard[i + 1][j].number += gameBoard[i][j].number;
-                                        //score += blockValue(i+1,j);
                                         gameBoard[i][j] = null;
                                         i ++;
                                     }
@@ -180,7 +178,6 @@ public class Game2048 {
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 4; col++) {
                 if (gameBoard[row][col] != null && gameBoard[row][col].number == 2048) {
-                    //writeToFile();
                     return true;
                 } else if (gameBoard[row][col] != null) {
                     count++;

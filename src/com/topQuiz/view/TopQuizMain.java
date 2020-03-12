@@ -35,7 +35,6 @@ public class TopQuizMain extends JFrame implements ActionListener {
         user.setActionCommand("click user");
         user.addActionListener(this);
         container.add(user);
-
         pack();
         setVisible( true );
     }
@@ -50,9 +49,7 @@ public class TopQuizMain extends JFrame implements ActionListener {
 
     }
 
-
     public static void main(String[] args) {
-
         TopQuizMain topQuizMain = new TopQuizMain();
         topQuizMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

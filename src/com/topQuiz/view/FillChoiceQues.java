@@ -93,7 +93,6 @@ public class FillChoiceQues extends JFrame {
 
       setLocationRelativeTo(null);
       setVisible(true);
-
   }
 
   class ButtonEventBackHandler implements ActionListener {
@@ -124,7 +123,7 @@ public class FillChoiceQues extends JFrame {
       }
   }
   
-  private void choiceQuesAddActionPerformed(ActionEvent evt) {
+    private void choiceQuesAddActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
 		String question = quesTa.getText();
 		String choice1 = choice1Ta.getText();
@@ -150,7 +149,7 @@ public class FillChoiceQues extends JFrame {
 		} catch (Exception e){
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Cannot be added!"); 
-		}finally {
+		} finally {
 			try {
 				dbUtil.closeCon(con);
 			} catch (Exception e) {
@@ -158,21 +157,20 @@ public class FillChoiceQues extends JFrame {
 				e.printStackTrace();
 			}
 		}
-}
+    }
 
-  public static void createAndShowGUI(){
-	  FillChoiceQues app = new FillChoiceQues();
-      app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );
-  }
-  public static void main(String[] args) {
-      //Schedule a job for the event dispatch thread:
-      //creating and showing this application's GUI.
-      SwingUtilities.invokeLater(new Runnable() {
-          public void run() {
+    public static void createAndShowGUI(){
+	    FillChoiceQues app = new FillChoiceQues();
+        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );
+    }
+
+    public static void main(String[] args) {
+        //Schedule a job for the event dispatch thread:
+        //creating and showing this application's GUI.
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
               createAndShowGUI();
           }
-      });
-
-  }
-
+        });
+    }
 }

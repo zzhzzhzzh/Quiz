@@ -3,29 +3,29 @@ package com.topQuiz.view;
 import javax.swing.*;
 import java.awt.*;
 
-public class JPanel2048 extends JPanel {
-    Game2048 newGame2048;
+public class AddingGamePanel extends JPanel {
+    AddingGameController newAddingGameController;
     private int currentScore;
     private static final int WINSCORE = 10;
-    public JPanel2048(Game2048 newGame2048) {
-        this.newGame2048 = newGame2048;
-        newGame2048.panel = this;
-        currentScore = this.newGame2048.user.getCurScore();
+    public AddingGamePanel(AddingGameController newAddingGameController) {
+        this.newAddingGameController = newAddingGameController;
+        newAddingGameController.panel = this;
+        currentScore = this.newAddingGameController.user.getCurScore();
     }
     public void paint(Graphics g) {
         drawBoard(g);
         drawBlocks(g);
 
-        if(newGame2048.winOrLose()) {
+        if(newAddingGameController.winOrLose()) {
             gameOver(g);
         }
 
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 4; col++) {
-                if (newGame2048.gameBoard[row][col] != null && newGame2048.gameBoard[row][col].number == 64) {
+                if (newAddingGameController.gameBoard[row][col] != null && newAddingGameController.gameBoard[row][col].number == 64) {
                     currentScore += WINSCORE;
-                    newGame2048.user.setCurScore(currentScore);
-                    newGame2048.user.setType3Score(WINSCORE);
+                    newAddingGameController.user.setCurScore(currentScore);
+                    newAddingGameController.user.setType3Score(WINSCORE);
                     win(g);
                 }
             }
@@ -71,19 +71,18 @@ public class JPanel2048 extends JPanel {
         {
             for (int j = 0; j < 4; j++)
             {
-                if (newGame2048.gameBoard[i][j] != null) {
-                    newGame2048.gameBoard[i][j].draw(g);
+                if (newAddingGameController.gameBoard[i][j] != null) {
+                    newAddingGameController.gameBoard[i][j].draw(g);
                 }
             }
         }
     }
 
     public void drawScore(Graphics g){
-        g.setColor(Color.BLACK);
+        g.setColor(Color.DARK_GRAY);
         g.setFont(new Font("Arial", Font.BOLD, 18));
-        g.drawString("Current Score: " + newGame2048.user.getCurScore(), 227, 615);
-//        g.setColor(new Color(233,86,86));
-//        g.drawString("Highest Score: " + newGame2048.highestScore, 10, 620);
+        g.drawString("Current Score: " + newAddingGameController.user.getCurScore(), 375, 620);
+        g.drawString("Current User: " + newAddingGameController.user.getUsername(), 72, 620);
     }
 
     public int sideValue() {

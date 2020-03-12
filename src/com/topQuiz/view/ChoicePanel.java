@@ -154,16 +154,4 @@ public class ChoicePanel extends JPanel implements ActionListener {
             return questionList;
         }
     }
-
-    public static void main(String[] args) throws Exception {
-//        JFrame f = new JFrame();
-//        //f.setSize(600, 600);
-//        f.setResizable(false);
-//        ChoicePanel app = new ChoicePanel();
-//        f.getContentPane().add(app);
-//        //f.pack();
-//        f.setVisible(true);
-//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-    }
 }

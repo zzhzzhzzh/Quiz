@@ -3,11 +3,11 @@ package com.topQuiz.view;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class MouseListener2048 implements MouseListener {
-    Game2048 game;
-    Button buttons;
+public class AddingGameMouseListener implements MouseListener {
+    AddingGameController game;
+    AddingGameHomeButton buttons;
 
-    public MouseListener2048(Game2048 game, Button buttons) {
+    public AddingGameMouseListener(AddingGameController game, AddingGameHomeButton buttons) {
         this.game = game;
         this.buttons = buttons;
     }

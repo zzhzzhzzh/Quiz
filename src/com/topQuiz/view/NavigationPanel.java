@@ -15,35 +15,37 @@ public class NavigationPanel extends JPanel  {
         setLayout(new FlowLayout());
 
         homeBtn = new JButton("Home");
+        homeBtn.setFont(new Font("Arial", Font.BOLD, 12));
         homeBtn.setActionCommand("click Home");
         homeBtn.addActionListener(gameWindow);
 
         submitBtn = new JButton("Submit score");
+        submitBtn.setFont(new Font("Arial", Font.BOLD, 12));
         submitBtn.setActionCommand("click Submit");
         submitBtn.addActionListener(gameWindow);
 
         lookUpHistoryScores = new JButton("History score");
+        lookUpHistoryScores.setFont(new Font("Arial", Font.BOLD, 12));
         lookUpHistoryScores.setActionCommand("click history score");
         lookUpHistoryScores.addActionListener(gameWindow);
 
-        username = new JLabel(user.getUsername());
-        username.setFont(new Font("ARIAL", Font.PLAIN, 19));
-        username.setForeground(Color.BLUE);
+        username = new JLabel("Current User: " + user.getUsername());
+        username.setLocation(55,380);
+        username.setFont(new Font("ARIAL", Font.BOLD, 12));
+        username.setForeground(Color.DARK_GRAY);
 
-        score = new JLabel(String.valueOf(user.getCurScore()));
-        add(username);
-        add(score);
+        score = new JLabel("Current score:" + user.getCurScore());
+        score.setLocation(500, 380);
+        score.setFont(new Font("ARIAL", Font.BOLD, 12));
+        add(username, BorderLayout.WEST);
         add(homeBtn);
         add(submitBtn);
         add(lookUpHistoryScores);
-
+        add(score, BorderLayout.EAST);
         setVisible(true);
     }
 
     public void updateScore(int score) {
         this.score.setText(String.valueOf(score));
     }
-
-
-
 }

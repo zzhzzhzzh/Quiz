@@ -19,7 +19,7 @@ public class GameWindow extends JFrame implements ActionListener {
 
     public GameWindow(User user) {
         super("Welcome to TopQuiz");
-        setSize(800, 300);
+        setSize(800, 400);
         this.user = user;
         Container container = getContentPane();
         container.setLayout(new BorderLayout());
@@ -52,11 +52,7 @@ public class GameWindow extends JFrame implements ActionListener {
             }
             validate();
         } else if (event.getActionCommand().equals("click game3")){
-//            getContentPane().removeAll();
-//            repaint();
-//            getContentPane().add(new MyPanel());
-//            validate();
-            Main.main(user);
+            InteractiveGame.main(user, navigationPanel);
         } else if (event.getActionCommand().equals("click Home")){
             BorderLayout layout = (BorderLayout) getContentPane().getLayout();
             getContentPane().remove(layout.getLayoutComponent(BorderLayout.CENTER));

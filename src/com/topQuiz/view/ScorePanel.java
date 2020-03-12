@@ -16,15 +16,13 @@ import java.util.List;
 
 public class ScorePanel extends JPanel {
     private JTable scoreTable;
-
-
     public ScorePanel(User user) {
-        String[] columns = {"userId",
-                            "time",
-                            "totalscore",
-                            "text question socre",
-                            "image question score",
-                            "interactive question score"};
+        String[] columns = {"User Id",
+                            "Time",
+                            "Total Score",
+                            "Text Question Score",
+                            "Image Question Score",
+                            "Interactive Question Score"};
 
         String[][] data;
         List<String[]> dataList = new ArrayList<>();
@@ -44,7 +42,6 @@ public class ScorePanel extends JPanel {
                 String type3score = String.valueOf(res.getInt("type3score"));
                 dataList.add(new String[]{id, time, score, type1score, type2score, type3score});
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -54,23 +51,14 @@ public class ScorePanel extends JPanel {
                 e.printStackTrace();
             }
         }
-        //data = new String[1][5];
-        //data[0] = new String[]{"1", "2", "3", "4", "5", "6"};
+
         data = dataList.toArray(new String[0][]);
-        //System.out.println("data :" + Arrays.deepToString(data));
         scoreTable = new JTable(data, columns);
         scoreTable.setBounds(30, 40, 500, 200);
-
-
-
-
-        //scoreTable = new JTable(spData, columnNames);
-
         JScrollPane sp = new JScrollPane(scoreTable);
         sp.setPreferredSize(new Dimension(700, 150));
         add(sp);
         validate();
         setVisible(true);
-
     }
 }

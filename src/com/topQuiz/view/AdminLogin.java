@@ -15,7 +15,6 @@ public class AdminLogin extends JFrame{
         super( "Admin Login" );
         this.setSize(550, 100);
         this.setResizable(false);
-
         // get content pane
         Container container = getContentPane();
         panel1 = new JPanel();
@@ -52,8 +51,6 @@ public class AdminLogin extends JFrame{
 
         container.add(panel1,BorderLayout.WEST);
         container.add(panel2,BorderLayout.PAGE_END);
-
-        //pack();
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -75,7 +72,7 @@ public class AdminLogin extends JFrame{
         }
 
     }
-    public static void createAndShowGUI(){
+    public static synchronized void createAndShowGUI(){
         AdminLogin app = new AdminLogin();
         app.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
@@ -87,7 +84,6 @@ public class AdminLogin extends JFrame{
                 createAndShowGUI();
             }
         });
-
     }
 
 }
