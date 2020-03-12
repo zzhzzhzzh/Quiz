@@ -106,8 +106,11 @@ public class ChoicePanel extends JPanel implements ActionListener {
         }
 
         if (rightanswer &&rightanswer && event.getActionCommand().equals("next question") && choiceQuestionIterator.hasNext()) {
+            //update total score
             user.setCurScore(user.getCurScore() + 1);
             navigationPanel.updateScore(user.getCurScore());
+            //update type 1 score
+            user.setType1Score(user.getType1Score() + 1);
             choiceQuestion = choiceQuestionIterator.next();
             quesContentLbl.setText(choiceQuestion.getQuestion());
             checkBoxList[0].setText(choiceQuestion.getChoice1());

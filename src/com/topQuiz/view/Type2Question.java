@@ -89,12 +89,14 @@ public class Type2Question extends JPanel implements ActionListener, MouseListen
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (quesContentLbl.getText() == "California" && e.getSource() == cApicLabel) {
-            user.setCurScore(user.getCurScore() + 1);
+        if (quesContentLbl.getText().equals("California") && e.getSource() == cApicLabel) {
+            user.setCurScore(user.getCurScore() + 5);
+            user.setType2Score(user.getType2Score() + 5);
             navigationPanel.updateScore(user.getCurScore());
             quesContentLbl.setText("Washington");
-        } else if (quesContentLbl.getText() == "Washington" && e.getSource() == wApicLebel) {
-            user.setCurScore(user.getCurScore() + 1);
+        } else if (quesContentLbl.getText().equals("Washington") && e.getSource() == wApicLebel) {
+            user.setCurScore(user.getCurScore() + 5);
+            user.setType2Score(user.getType2Score() + 5);
             navigationPanel.updateScore(user.getCurScore());
             JOptionPane.showMessageDialog(null, "You have answered all question, please go back to home page");
 

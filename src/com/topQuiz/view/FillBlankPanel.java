@@ -85,8 +85,11 @@ public class FillBlankPanel extends JPanel implements ActionListener {
             if (!answer.equals(blankQuestion.getAnswer())) { // wrong answer
                 JOptionPane.showMessageDialog(null, "Your answer is incorrect");
             } else { //correct answer
+                //update total score
                 user.setCurScore(user.getCurScore() + 1);
                 navigationPanel.updateScore(user.getCurScore());
+                //update type 1 question score
+                user.setType1Score(user.getType1Score() + 1);
                 if (blankQuestionIterator.hasNext()) { // there still have some questions in this question list
                     blankQuestion = blankQuestionIterator.next();
                     quesContentLbl.setText(blankQuestion.getQuestion());

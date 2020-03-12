@@ -75,6 +75,7 @@ public class UserLogin extends JFrame implements ActionListener {
                 int userId = res.getInt("id");
                 int maxScore = res.getInt("maxscore");
 
+
                 User user = new User(userId, username, maxScore);
                 System.out.println(user.toString());
                 dispose();

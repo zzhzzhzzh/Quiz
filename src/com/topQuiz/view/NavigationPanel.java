@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NavigationPanel extends JPanel  {
-    private JButton homeBtn;
+    private JButton homeBtn, submitBtn, lookUpHistoryScores;
     private JLabel username, score;
     private User user;
 
@@ -18,6 +18,14 @@ public class NavigationPanel extends JPanel  {
         homeBtn.setActionCommand("click Home");
         homeBtn.addActionListener(gameWindow);
 
+        submitBtn = new JButton("Submit score");
+        submitBtn.setActionCommand("click Submit");
+        submitBtn.addActionListener(gameWindow);
+
+        lookUpHistoryScores = new JButton("History score");
+        lookUpHistoryScores.setActionCommand("click history score");
+        lookUpHistoryScores.addActionListener(gameWindow);
+
         username = new JLabel(user.getUsername());
         username.setFont(new Font("ARIAL", Font.PLAIN, 19));
         username.setForeground(Color.BLUE);
@@ -26,6 +34,7 @@ public class NavigationPanel extends JPanel  {
         add(username);
         add(score);
         add(homeBtn);
+        add(submitBtn);
 
         setVisible(true);
     }
