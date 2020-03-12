@@ -30,18 +30,16 @@ public class NavigationPanel extends JPanel  {
         lookUpHistoryScores.addActionListener(gameWindow);
 
         username = new JLabel("Current User: " + user.getUsername());
-        username.setLocation(55,380);
         username.setFont(new Font("ARIAL", Font.BOLD, 12));
         username.setForeground(Color.DARK_GRAY);
 
-        score = new JLabel("Current score:" + user.getCurScore());
-        score.setLocation(500, 380);
+        score = new JLabel("Current score: " + user.getCurScore());
         score.setFont(new Font("ARIAL", Font.BOLD, 12));
-        add(username, BorderLayout.WEST);
+        add(username);
         add(homeBtn);
         add(submitBtn);
         add(lookUpHistoryScores);
-        add(score, BorderLayout.EAST);
+        add(score);
         setVisible(true);
     }
 
