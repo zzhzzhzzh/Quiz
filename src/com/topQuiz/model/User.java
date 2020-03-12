@@ -3,7 +3,6 @@ package com.topQuiz.model;
 public class User {
     private int id;
     private String username;
-    private int maxSocre;
     private int curScore;
     private int type1Score;
     private int type2Score;
@@ -11,10 +10,9 @@ public class User {
 
 
 
-    public User(int id, String username, int maxSocre) {
+    public User(int id, String username) {
         this.id = id;
         this.username = username;
-        this.maxSocre = maxSocre;
         this.curScore = 0;
         this.type1Score = 0;
         this.type2Score = 0;
@@ -38,13 +36,6 @@ public class User {
         this.username = username;
     }
 
-    public int getMaxSocre() {
-        return maxSocre;
-    }
-
-    public void setMaxSocre(int maxSocre) {
-        this.maxSocre = maxSocre;
-    }
 
     public int getCurScore() {
         return curScore;
@@ -83,7 +74,6 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", maxSocre=" + maxSocre +
                 '}';
     }
 }
