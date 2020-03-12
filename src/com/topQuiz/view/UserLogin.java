@@ -19,17 +19,17 @@ public class UserLogin extends JFrame implements ActionListener {
 
     public UserLogin() {
         super("User Login");
-        this.setSize(250, 250);
+        this.setSize(300, 100);
         this.setResizable(false);
 
         Container container = getContentPane();
         panel1 = new JPanel();
         panel1.setLayout(new FlowLayout());
 
-        unameLbl = new JLabel("Username");
-        unameLbl.setFont(new Font("ARIAL", Font.PLAIN, 19));
-        unameLbl.setForeground(Color.BLUE);
-        unameTf = new JTextField(10);
+        unameLbl = new JLabel("User Name");
+        unameLbl.setFont(new Font("ARIAL", Font.BOLD, 16));
+        unameLbl.setForeground(Color.GRAY);
+        unameTf = new JTextField(15);
 
         panel1.add(unameLbl);
         panel1.add(unameTf);
@@ -46,8 +46,6 @@ public class UserLogin extends JFrame implements ActionListener {
 
         container.add(panel1, BorderLayout.PAGE_START);
         container.add(panel2, BorderLayout.CENTER);
-
-        pack();
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -81,7 +79,7 @@ public class UserLogin extends JFrame implements ActionListener {
                 dispose();
                 new GameWindow(user).setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong username!");
+                JOptionPane.showMessageDialog(null, "Wrong user name!");
                 unameTf.setText("");
                 System.out.println("用户不存在");
             }

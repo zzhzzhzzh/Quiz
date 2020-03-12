@@ -13,16 +13,13 @@ import java.sql.Connection;
 import java.sql.Timestamp;
 
 public class GameWindow extends JFrame implements ActionListener {
-
-    private JButton game1, game2, game3, homeBtn;
     private JPanel gameChoicePanel;
     private  NavigationPanel navigationPanel;
-    private JLabel username, score;
     private User user;
 
     public GameWindow(User user) {
         super("Welcome to TopQuiz");
-        setSize(600, 400);
+        setSize(800, 300);
         this.user = user;
         Container container = getContentPane();
         container.setLayout(new BorderLayout());
@@ -30,9 +27,7 @@ public class GameWindow extends JFrame implements ActionListener {
         gameChoicePanel = new GameChoicePanel(this);
 
         container.add(navigationPanel, BorderLayout.PAGE_START);
-        container.add(gameChoicePanel, BorderLayout.CENTER);
-
-        //pack();
+        container.add(gameChoicePanel, BorderLayout.PAGE_END);
         setVisible(true);
     }
 
@@ -61,9 +56,8 @@ public class GameWindow extends JFrame implements ActionListener {
 //            repaint();
 //            getContentPane().add(new MyPanel());
 //            validate();
-
             Main.main(user);
-        }else if (event.getActionCommand().equals("click Home")){
+        } else if (event.getActionCommand().equals("click Home")){
             BorderLayout layout = (BorderLayout) getContentPane().getLayout();
             getContentPane().remove(layout.getLayoutComponent(BorderLayout.CENTER));
             repaint();
@@ -105,7 +99,4 @@ public class GameWindow extends JFrame implements ActionListener {
         GameWindow gameWindow = new GameWindow(user);
         gameWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
-
-
-
 }
