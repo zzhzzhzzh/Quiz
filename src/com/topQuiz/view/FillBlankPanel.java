@@ -56,7 +56,7 @@ public class FillBlankPanel extends JPanel implements ActionListener {
         ansLbl.setForeground(Color.BLUE);
         ansLbl.setIcon(new ImageIcon(FillBlankQues.class.getResource("/images/answer.png")));
 
-        ansTa = new JTextArea(1, 15);
+        ansTa = new JTextArea(1, 10);
 
 
         answerPanel.add(ansLbl);
