@@ -29,7 +29,7 @@ public class BlankQuestionDao {
 	}
 
 	public ResultSet search(Connection con) throws Exception {
-		String sql = "select * from t_blankQuestion order by rand() limit 2";
+		String sql = "select * from t_blankQuestion order by rand() limit 10";
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		return pstmt.executeQuery();
 	}
